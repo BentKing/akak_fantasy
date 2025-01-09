@@ -21,17 +21,19 @@ def weeks_between(start_date, end_date):
 # Wednesday before football starts
 nfl_start_date=datetime.datetime(2024,9,4)
 week = weeks_between(nfl_start_date, datetime.datetime.today())
+# Uncomment below if running outside of nfl regular season or if nfl_start_date is unset
+#week = 15
 players = 14
-dest_filepath = "/mnt/d/Desktop/Side_Projects/Fantasy/2024/full_week_data.csv"
+dest_filepath = "./full_week_data.csv"
 full_pull=False #Set this if you want to pull every week from ESPN not just current week
 num_uniq_rosters = week * players
 
 # Authentication Data
 lid=""
-api_base="https://lm-api-reads.fantasy.espn.com/apis/v3/"
-query="games/ffl/seasons/2024/segments/0/leagues/"
 espn_s2=""
 swid=""
+api_base="https://lm-api-reads.fantasy.espn.com/apis/v3/"
+query="games/ffl/seasons/2024/segments/0/leagues/"
 cookies = {"swid" : swid, "espn_s2" : espn_s2}
 
 # Match Team ID to Name

@@ -1,1 +1,12 @@
 A repo for scraping ESPN fantasy API to parse matchup data.
+
+
+Usage:
+
+Edit espn_fantasy.py with your league_id, swid, and s2 values. These can be obtained by inspecting in chrome. https://www.gamedaybot.com/help/espn_s2-and-swid/ "You can find these two values after logging into your ESPN fantasy football account on ESPN’s website. (Chrome Browser) Right click anywhere on the website and click inspect option. From there click Application on the top bar. On the left under Storage section click Cookies then http://fantasy.espn.com. From there you should be able to find your SWID and ESPN_S2 variables and values".
+
+The script tries to automatically determine what the current week in the NFL is. This only works if you update the nfl_start_date value with the first game of the season (TNF). If you are running outside of the regular season, you can manually set week by uncommenting the #week = x; line with your desired week.
+
+If you want to pull all data, leave full_pull set to true, which will pull data for every week up to the current week. Otherwise, only the data for the current week will be pulled and appended to your csv.
+
+The script will first scrape the API and dump it to a textfile. Then it uses this file to create or append to a csv which contains player data for all teams 'full_week_data.csv'.
